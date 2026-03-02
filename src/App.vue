@@ -3,79 +3,95 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <header>
-    <div class="wrapper">
-      <h1>Pablo Martínez Martínez</h1>
-      <nav>
-        <RouterLink to="/">Inicio</RouterLink>
-        <RouterLink to="/about">Sobre mí</RouterLink>
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">
+        <div class="brand-title">LOCAL WORLD</div>
+        <div class="brand-subtitle">Reportajes • Etnografías • Actualidad</div>
+      </div>
+
+      <nav class="nav">
+        <RouterLink to="/" class="nav-link">Inicio</RouterLink>
+        <RouterLink to="/reportajes" class="nav-link">Reportajes</RouterLink>
+        <RouterLink to="/actualidad" class="nav-link">Actualidad</RouterLink>
+        <RouterLink to="/portfolio" class="nav-link">Portfolio</RouterLink>
       </nav>
     </div>
   </header>
 
-  <RouterView />
+  <main class="container main">
+    <RouterView />
+  </main>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(10, 10, 12, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px 18px;
 }
 
-nav {
-  width: 100%;
+.brand-title {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.brand-subtitle {
+  margin-top: 2px;
   font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
+  opacity: 0.75;
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
+.nav {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  flex-wrap: wrap;
 }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  opacity: 0.9;
 }
 
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
+.nav-link:hover {
+  opacity: 1;
+  border-color: rgba(255, 255, 255, 0.22);
 }
 
-nav a:first-of-type {
-  border: 0;
+.nav a.router-link-exact-active {
+  opacity: 1;
+  border-color: rgba(255, 255, 255, 0.35);
 }
 
-@media (min-width: 1024px) {
-  header {
+.main {
+  padding-top: 22px;
+}
+
+@media (min-width: 900px) {
+  .container {
     display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
   }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
+  .nav {
+    margin-top: 0;
   }
 }
 </style>
