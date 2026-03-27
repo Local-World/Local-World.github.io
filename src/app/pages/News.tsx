@@ -59,7 +59,7 @@ export function News() {
         <div className="max-w-7xl mx-auto px-6">
           <h1 className="text-5xl tracking-tight mb-4">NOTICIAS DE ACTUALIDAD</h1>
           <p className="text-xl text-neutral-300 max-w-3xl">
-            Análisis y reportajes de investigación sobre los acontecimientos que están moldeando nuestro mundo
+            Análisis y opinión sobre los acontecimientos que moldean nuestro mundo
           </p>
         </div>
       </section>

@@ -16,7 +16,7 @@ export function Layout() {
         <div className="max-w-7xl mx-auto px-6 py-6">
           <div className="flex items-center justify-between">
             <Link to="/" className="text-2xl tracking-tight text-neutral-900 hover:text-neutral-600 transition-colors">
-              DOCUMENTALES
+              LOCALWORLD
             </Link>
             <nav className="flex gap-8">
               <Link
@@ -76,7 +76,7 @@ export function Layout() {
             <div>
               <h3 className="tracking-tight text-neutral-900 mb-4">DOCUMENTALES</h3>
               <p className="text-neutral-600 text-sm">
-                Reportajes y documentales de investigación sobre historias que importan.
+                Reportajes y documentales de investigación.
               </p>
             </div>
             <div>
@@ -107,12 +107,12 @@ export function Layout() {
             <div>
               <h4 className="tracking-tight text-neutral-900 mb-4">CONTACTO</h4>
               <p className="text-neutral-600 text-sm">
-                contacto@documentales.com
+                localworld42@gmail.com
               </p>
             </div>
           </div>
           <div className="mt-12 pt-8 border-t border-neutral-200 text-center text-sm text-neutral-500">
-            © 2026 Documentales. Todos los derechos reservados.
+            © 2026 LocalWorld. Todos los derechos reservados.
           </div>
         </div>
       </footer>

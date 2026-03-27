@@ -5,9 +5,9 @@ export function Home() {
   const featuredStories = [
     {
       id: 1,
-      title: "Voces de África: Historias no contadas",
-      description: "Un viaje por el continente africano explorando culturas, tradiciones y las historias de sus habitantes.",
-      image: "https://images.unsplash.com/photo-1759144204797-cbbb4372ca77?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0cmF2ZWwlMjBkb2N1bWVudGFyeSUyMGFmcmljYXxlbnwxfHx8fDE3NzQzNDQwNzB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      title: "6 Días en Mauritania",
+      description: "En este reportaje cuento como es la vida en un país tan inhóspito como Mauritania, durante 6 días me intento adentrar en la cultura de este país viajando yo solo por este y conociendo a distintas personas que me cuentan como se vive ahí.",
+      image: "/PORTADA MAURITANIA.jpg",
       category: "Reportajes",
       link: "/reportajes",
     },
@@ -35,17 +35,17 @@ export function Home() {
       <section className="relative h-[70vh] min-h-[600px] bg-neutral-900 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <ImageWithFallback
-            src="https://images.unsplash.com/photo-1531164571830-7b608d24afd1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkb2N1bWVudGFyeSUyMGpvdXJuYWxpc20lMjByZXBvcnRlcnxlbnwxfHx8fDE3NzQzNDQwNjl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-            alt="Documentary journalism"
+            src="/pag_principal.jpg"
+            alt="Mauritania"
             className="w-full h-full object-cover opacity-40"
           />
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center text-white">
           <h1 className="text-5xl md:text-6xl tracking-tight mb-6">
-            HISTORIAS QUE TRANSFORMAN
+            LOCAL WORLD
           </h1>
           <p className="text-xl text-neutral-200 mb-8 max-w-2xl mx-auto">
-            Reportajes documentales y periodismo de investigación desde todos los rincones del mundo
+            Reportajes, documentales y periodismo de investigación. Divulgación cultural, etnias, tradiciones, problematicas y actualidad. Aquí no venimos a explicar el mundo venimos a caminarlo.
           </p>
           <Link
             to="/reportajes"
@@ -86,11 +86,11 @@ export function Home() {
       {/* About Section */}
       <section className="bg-neutral-50 py-20">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl tracking-tight text-neutral-900 mb-6">SOBRE ESTE PROYECTO</h2>
+          <h2 className="text-3xl tracking-tight text-neutral-900 mb-6">SOBRE MÍ</h2>
           <p className="text-neutral-700 mb-6">
-            Un espacio dedicado al periodismo documental y de investigación. Aquí encontrarás reportajes
-            en video, análisis de actualidad y un portfolio fotográfico resultado de años de trabajo en
-            terreno capturando historias que necesitan ser contadas.
+            Soy Pablo Martínez, me dedico a viajar y conocer cualquier cultura o país del mundo, desde lo mejor de cada una de estas hasta lo peor del ser humano. 
+            Este es un espacio para exponer lo que he visto con mis propios ojos, a través del periodismo documental y de investigación. Aquí encontrarás reportajes
+            en video, análisis de actualidad, opinión y un portfolio fotográfico capturando todo tipo de historias que necesitan ser contadas.
           </p>
           <p className="text-neutral-700">
             Cada reportaje es un testimonio del mundo que nos rodea, un compromiso con la verdad y una
