@@ -1,12 +1,31 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
 export function Home() {
+  const heroImages = [
+    "/pag_principal.jpg",
+    "/desierto.jpg",
+    "/mauritania_hombre.jpg",
+    "/Portfolio/marmenor.jpg",
+  ];
+
+  const [currentHeroIndex, setCurrentHeroIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setCurrentHeroIndex((prev) => (prev + 1) % heroImages.length);
+    }, 15000);
+
+    return () => window.clearInterval(interval);
+  }, [heroImages.length]);
+
   const featuredStories = [
     {
       id: 1,
       title: "6 Días en Mauritania",
-      description: "En este reportaje cuento como es la vida en un país tan inhóspito como Mauritania, durante 6 días me intento adentrar en la cultura de este país viajando yo solo por este y conociendo a distintas personas que me cuentan como se vive ahí.",
+      description:
+        "En este reportaje cuento como es la vida en un país tan inhóspito como Mauritania, durante 6 días me intento adentrar en la cultura de este país viajando yo solo por este y conociendo a distintas personas que me cuentan como se vive ahí.",
       image: "/PORTADA MAURITANIA.jpg",
       category: "Reportajes",
       link: "/reportajes",
@@ -14,7 +33,8 @@ export function Home() {
     {
       id: 2,
       title: "Opinión: La vuelta al imperialismo",
-      description: "En una época en la que el mundo parece estar más avanzado tecnológicamente que nunca, yo me pregunto: ¿Por qué parece que hemos vuelto al sistema imperialista que reprimía antaño?",
+      description:
+        "En una época en la que el mundo parece estar más avanzado tecnológicamente que nunca, yo me pregunto: ¿Por qué parece que hemos vuelto al sistema imperialista que reprimía antaño?",
       image: "/mundo_imperialista.jpg",
       category: "Opinión",
       link: "/noticias",
@@ -22,7 +42,8 @@ export function Home() {
     {
       id: 3,
       title: "Portfolio fotográfico",
-      description: "Una colección de imágenes capturadas durante años de viajes y documentación de historias humanas.",
+      description:
+        "Una colección de imágenes capturadas durante años de viajes y documentación de historias humanas.",
       image: "/Portfolio/madrehijo_alsacia.jpg",
       category: "Portfolio",
       link: "/portfolio",
@@ -31,21 +52,30 @@ export function Home() {
 
   return (
     <div>
-      {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[600px] bg-neutral-900 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <ImageWithFallback
-            src="/pag_principal.jpg"
-            alt="Mauritania"
-            className="w-full h-full object-cover opacity-40"
-          />
+          {heroImages.map((image, index) => (
+            <ImageWithFallback
+              key={image}
+              src={image}
+              alt="Portada Local World"
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1800ms] ${
+                index === currentHeroIndex ? "opacity-40" : "opacity-0"
+              }`}
+            />
+          ))}
         </div>
+
+        <div className="absolute inset-0 bg-black/35" />
+
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center text-white">
           <h1 className="text-5xl md:text-6xl tracking-tight mb-6">
             LOCAL WORLD
           </h1>
           <p className="text-xl text-neutral-200 mb-8 max-w-2xl mx-auto">
-            Reportajes, documentales y periodismo de investigación. Divulgación cultural, etnias, tradiciones, problematicas y actualidad. Aquí no venimos a explicar el mundo venimos a caminarlo.
+            Reportajes, documentales y periodismo de investigación. Divulgación cultural, etnias,
+            tradiciones, problematicas y actualidad. Aquí no venimos a explicar el mundo venimos a
+            caminarlo.
           </p>
           <Link
             to="/reportajes"
@@ -54,18 +84,27 @@ export function Home() {
             VER REPORTAJES
           </Link>
         </div>
+
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+          {heroImages.map((_, index) => (
+            <button
+              key={index}
+              type="button"
+              onClick={() => setCurrentHeroIndex(index)}
+              aria-label={`Ir a imagen ${index + 1}`}
+              className={`h-2.5 w-2.5 rounded-full transition-all ${
+                index === currentHeroIndex ? "bg-white w-6" : "bg-white/50 hover:bg-white/80"
+              }`}
+            />
+          ))}
+        </div>
       </section>
 
-      {/* Featured Stories */}
       <section className="max-w-7xl mx-auto px-6 py-20">
         <h2 className="text-3xl tracking-tight text-neutral-900 mb-12">DESTACADOS</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {featuredStories.map((story) => (
-            <Link
-              key={story.id}
-              to={story.link}
-              className="group"
-            >
+            <Link key={story.id} to={story.link} className="group">
               <div className="aspect-[4/3] overflow-hidden bg-neutral-100 mb-4">
                 <ImageWithFallback
                   src={story.image}
@@ -73,7 +112,9 @@ export function Home() {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
-              <div className="text-xs tracking-widest text-neutral-500 mb-2">{story.category}</div>
+              <div className="text-xs tracking-widest text-neutral-500 mb-2">
+                {story.category}
+              </div>
               <h3 className="text-xl tracking-tight text-neutral-900 mb-2 group-hover:text-neutral-600 transition-colors">
                 {story.title}
               </h3>
@@ -83,18 +124,19 @@ export function Home() {
         </div>
       </section>
 
-      {/* About Section */}
       <section className="bg-neutral-50 py-20">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl tracking-tight text-neutral-900 mb-6">SOBRE MÍ</h2>
           <p className="text-neutral-700 mb-6">
-            Soy Pablo Martínez, me dedico a viajar y conocer cualquier cultura o país del mundo, desde lo mejor de cada una de estas hasta lo peor del ser humano. 
-            Este es un espacio para exponer lo que he visto con mis propios ojos, a través del periodismo documental y de investigación. Aquí encontrarás reportajes
-            en video, análisis de actualidad, opinión y un portfolio fotográfico capturando todo tipo de historias que necesitan ser contadas.
+            Soy Pablo Martínez, me dedico a viajar y conocer cualquier cultura o país del mundo,
+            desde lo mejor de cada una de estas hasta lo peor del ser humano. Este es un espacio
+            para exponer lo que he visto con mis propios ojos, a través del periodismo documental y
+            de investigación. Aquí encontrarás reportajes en video, análisis de actualidad, opinión
+            y un portfolio fotográfico capturando todo tipo de historias que necesitan ser contadas.
           </p>
           <p className="text-neutral-700">
-            Cada reportaje es un testimonio del mundo que nos rodea, un compromiso con la verdad y una
-            ventana hacia realidades que muchas veces permanecen invisibles.
+            Cada reportaje es un testimonio del mundo que nos rodea, un compromiso con la verdad y
+            una ventana hacia realidades que muchas veces permanecen invisibles.
           </p>
         </div>
       </section>

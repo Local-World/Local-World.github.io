@@ -25,7 +25,7 @@ export function Portfolio() {
     {
       id: 3,
       url: "/Portfolio/ana_musical.jpg",
-      title: "Obra musical Gran Showman",
+      title: "Orgulloso de ti, hermanita",
       location: "España",
       description:
         "",
