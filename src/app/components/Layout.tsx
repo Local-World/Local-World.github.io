@@ -10,18 +10,18 @@ export function Layout() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-x-hidden">
       {/* Header */}
-      <header className="border-b border-neutral-200 sticky top-0 bg-white z-50">
-        <div className="max-w-7xl mx-auto px-6 py-6">
-          <div className="flex items-center justify-between">
+      <header className="border-b border-neutral-200 sticky top-0 bg-white z-50 overflow-hidden">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-5">
+          <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
             <Link to="/" className="text-2xl tracking-tight text-neutral-900 hover:text-neutral-600 transition-colors">
               LOCALWORLD
             </Link>
-            <nav className="flex gap-8">
+            <nav className="flex flex-wrap justify-center gap-2 text-xs sm:text-sm md:gap-4 md:text-base">
               <Link
                 to="/"
-                className={`tracking-wide transition-colors ${
+                className={`tracking-wide transition-colors whitespace-nowrap px-1 py-1 ${
                   isActive("/") && location.pathname === "/"
                     ? "text-neutral-900 border-b-2 border-neutral-900"
                     : "text-neutral-500 hover:text-neutral-900"
@@ -31,7 +31,7 @@ export function Layout() {
               </Link>
               <Link
                 to="/noticias"
-                className={`tracking-wide transition-colors ${
+                className={`tracking-wide transition-colors whitespace-nowrap px-1 py-1 ${
                   isActive("/noticias")
                     ? "text-neutral-900 border-b-2 border-neutral-900"
                     : "text-neutral-500 hover:text-neutral-900"
@@ -41,7 +41,7 @@ export function Layout() {
               </Link>
               <Link
                 to="/reportajes"
-                className={`tracking-wide transition-colors ${
+                className={`tracking-wide transition-colors whitespace-nowrap px-1 py-1 ${
                   isActive("/reportajes")
                     ? "text-neutral-900 border-b-2 border-neutral-900"
                     : "text-neutral-500 hover:text-neutral-900"
@@ -51,7 +51,7 @@ export function Layout() {
               </Link>
               <Link
                 to="/portfolio"
-                className={`tracking-wide transition-colors ${
+                className={`tracking-wide transition-colors whitespace-nowrap px-1 py-1 ${
                   isActive("/portfolio")
                     ? "text-neutral-900 border-b-2 border-neutral-900"
                     : "text-neutral-500 hover:text-neutral-900"

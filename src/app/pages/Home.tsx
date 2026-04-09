@@ -52,7 +52,7 @@ export function Home() {
 
   return (
     <div>
-      <section className="relative h-[70vh] min-h-[600px] bg-neutral-900 flex items-center justify-center overflow-hidden">
+      <section className="relative h-[70vh] min-h-[400px] md:min-h-[600px] bg-neutral-900 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           {heroImages.map((image, index) => (
             <ImageWithFallback
