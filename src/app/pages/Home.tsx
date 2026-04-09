@@ -68,11 +68,11 @@ export function Home() {
 
         <div className="absolute inset-0 bg-black/35" />
 
-        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center text-white">
-          <h1 className="text-5xl md:text-6xl tracking-tight mb-6">
+        <div className="relative z-10 max-w-4xl mx-auto px-6 pt-10 text-center text-white sm:pt-12 md:pt-16">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl tracking-tight mb-4 sm:mb-5">
             LOCAL WORLD
           </h1>
-          <p className="text-xl text-neutral-200 mb-8 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-neutral-200 mb-8 max-w-2xl mx-auto leading-8">
             Reportajes, documentales y periodismo de investigación. Divulgación cultural, etnias,
             tradiciones, problematicas y actualidad. Aquí no venimos a explicar el mundo venimos a
             caminarlo.
@@ -100,8 +100,8 @@ export function Home() {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <h2 className="text-3xl tracking-tight text-neutral-900 mb-12">DESTACADOS</h2>
+      <section className="max-w-7xl mx-auto px-6 py-12">
+        <h2 className="text-3xl tracking-tight text-neutral-900 mb-8">DESTACADOS</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {featuredStories.map((story) => (
             <Link key={story.id} to={story.link} className="group">
