@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, Outlet, useLocation } from "react-router";
 import {
   Drawer,
@@ -19,6 +19,21 @@ export function Layout() {
   const location = useLocation();
   const [drawerOpen, setDrawerOpen] = useState(false);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === "visible") {
+        window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [location.pathname]);
+
   const isActive = (path: string) => {
     if (path === "/" && location.pathname === "/") return true;
     if (path !== "/" && location.pathname.startsWith(path)) return true;
@@ -28,7 +43,7 @@ export function Layout() {
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
       {/* Header */}
-      <header className="absolute inset-x-0 top-0 z-50 md:sticky md:border-b md:border-neutral-200 md:bg-white md:backdrop-blur-none">
+      <header className="absolute inset-x-0 top-0 z-50 md:sticky md:border-b md:border-b-vintage-teal/30 md:bg-white md:backdrop-blur-none">
         <div className="w-full max-w-7xl mx-auto flex items-center justify-between px-4 py-4 sm:px-6">
           <Link
             to="/"
@@ -38,19 +53,27 @@ export function Layout() {
           </Link>
 
           <nav className="hidden md:flex flex-wrap justify-center gap-6 text-sm md:text-base">
-            {navItems.map((item) => (
-              <Link
-                key={item.to}
-                to={item.to}
-                className={`tracking-wide transition-colors whitespace-nowrap px-2 py-1 ${
-                  isActive(item.to)
-                    ? "text-neutral-900 border-b-2 border-neutral-900"
-                    : "text-neutral-500 hover:text-neutral-900"
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const activeStyles = {
+                "/": "border-b-2 border-neutral-900",
+                "/noticias": "border-b-2 border-vintage-crimson",
+                "/reportajes": "border-b-2 border-vintage-crimson",
+                "/portfolio": "border-b-2 border-vintage-teal",
+              };
+              return (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  className={`tracking-wide transition-colors whitespace-nowrap px-2 py-1 ${
+                    isActive(item.to)
+                      ? `text-neutral-900 ${activeStyles[item.to as keyof typeof activeStyles]}`
+                      : "text-neutral-500 hover:text-neutral-900"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="flex items-center gap-2 md:hidden">
@@ -90,7 +113,7 @@ export function Layout() {
                       onClick={() => setDrawerOpen(false)}
                       className={`rounded-2xl px-4 py-4 text-base font-medium transition-colors ${
                         isActive(item.to)
-                          ? "bg-neutral-900 text-white"
+                          ? "bg-vintage-crimson/10 text-vintage-crimson border-l-4 border-vintage-crimson"
                           : "text-neutral-900 hover:bg-neutral-100"
                       }`}
                     >
@@ -110,7 +133,7 @@ export function Layout() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-neutral-200 mt-24">
+      <footer className="border-t-[4px] border-t-[#EDDCC6] mt-24">
         <div className="max-w-7xl mx-auto px-6 py-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>

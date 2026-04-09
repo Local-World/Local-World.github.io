@@ -52,7 +52,7 @@ export function Home() {
 
   return (
     <div>
-      <section className="relative h-[70vh] min-h-[400px] md:min-h-[600px] bg-neutral-900 flex items-center justify-center overflow-hidden">
+      <section className="relative h-[70vh] min-h-[400px] md:min-h-[600px] bg-gradient-to-br from-vintage-crimson to-vintage-crimson flex items-center justify-center overflow-hidden shadow-inner">
         <div className="absolute inset-0">
           {heroImages.map((image, index) => (
             <ImageWithFallback
@@ -69,17 +69,17 @@ export function Home() {
         <div className="absolute inset-0 bg-black/35" />
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 pt-10 text-center text-white sm:pt-12 md:pt-16">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl tracking-tight mb-4 sm:mb-5">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl tracking-tight mb-4 sm:mb-5 drop-shadow-lg">
             LOCAL WORLD
           </h1>
-          <p className="text-base sm:text-lg md:text-xl text-neutral-200 mb-8 max-w-2xl mx-auto leading-8">
+          <p className="text-base sm:text-lg md:text-xl text-neutral-200 mb-8 max-w-2xl mx-auto leading-8 drop-shadow">
             Reportajes, documentales y periodismo de investigación. Divulgación cultural, etnias,
             tradiciones, problematicas y actualidad. Aquí no venimos a explicar el mundo venimos a
             caminarlo.
           </p>
           <Link
             to="/reportajes"
-            className="inline-block bg-white text-neutral-900 px-8 py-3 tracking-wide hover:bg-neutral-100 transition-colors"
+            className="inline-block bg-[#F2F0EF] text-neutral-900 px-8 py-3 tracking-wide hover:bg-[#F2F0EF]/90 transition-all shadow-sm hover:shadow-md rounded-lg"
           >
             VER REPORTAJES
           </Link>
@@ -92,8 +92,8 @@ export function Home() {
               type="button"
               onClick={() => setCurrentHeroIndex(index)}
               aria-label={`Ir a imagen ${index + 1}`}
-              className={`h-2.5 w-2.5 rounded-full transition-all ${
-                index === currentHeroIndex ? "bg-white w-6" : "bg-white/50 hover:bg-white/80"
+              className={`h-2.5 rounded-full transition-all shadow-md ${
+                index === currentHeroIndex ? "bg-vintage-teal w-6" : "bg-white/50 hover:bg-white/80"
               }`}
             />
           ))}
@@ -101,40 +101,47 @@ export function Home() {
       </section>
 
       <section className="max-w-7xl mx-auto px-6 py-12">
-        <h2 className="text-3xl tracking-tight text-neutral-900 mb-8">DESTACADOS</h2>
+        <h2 className="text-3xl tracking-tight text-foreground mb-8">DESTACADOS</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {featuredStories.map((story) => (
-            <Link key={story.id} to={story.link} className="group">
-              <div className="aspect-[4/3] overflow-hidden bg-neutral-100 mb-4">
-                <ImageWithFallback
-                  src={story.image}
-                  alt={story.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="text-xs tracking-widest text-neutral-500 mb-2">
-                {story.category}
-              </div>
-              <h3 className="text-xl tracking-tight text-neutral-900 mb-2 group-hover:text-neutral-600 transition-colors">
-                {story.title}
-              </h3>
-              <p className="text-neutral-600">{story.description}</p>
-            </Link>
-          ))}
+          {featuredStories.map((story) => {
+            const borderColor = {
+              "Reportajes": "border-t-vintage-crimson",
+            "Opinión": "border-t-vintage-crimson",
+              "Portfolio": "border-t-vintage-teal",
+            }[story.category] || "border-t-neutral-200";
+            return (
+              <Link key={story.id} to={story.link} className="group">
+                <div className={`aspect-[4/3] overflow-hidden bg-muted mb-4 rounded-lg shadow-md group-hover:shadow-lg transition-shadow border border-vintage-peach/40 border-t-4 ${borderColor}`}>
+                  <ImageWithFallback
+                    src={story.image}
+                    alt={story.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="text-xs tracking-widest text-muted-foreground mb-2">
+                  {story.category}
+                </div>
+                <h3 className="text-xl tracking-tight text-foreground mb-2 group-hover:text-primary transition-colors">
+                  {story.title}
+                </h3>
+                <p className="text-muted-foreground">{story.description}</p>
+              </Link>
+            );
+          })}
         </div>
       </section>
 
-      <section className="bg-neutral-50 py-20">
+      <section className="bg-secondary py-20 shadow-inner border-t-4 border-t-vintage-crimson">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl tracking-tight text-neutral-900 mb-6">SOBRE MÍ</h2>
-          <p className="text-neutral-700 mb-6">
+          <h2 className="text-3xl tracking-tight text-secondary-foreground mb-6">SOBRE MÍ</h2>
+          <p className="text-secondary-foreground/80 mb-6">
             Soy Pablo Martínez, me dedico a viajar y conocer cualquier cultura o país del mundo,
             desde lo mejor de cada una de estas hasta lo peor del ser humano. Este es un espacio
             para exponer lo que he visto con mis propios ojos, a través del periodismo documental y
             de investigación. Aquí encontrarás reportajes en video, análisis de actualidad, opinión
             y un portfolio fotográfico capturando todo tipo de historias que necesitan ser contadas.
           </p>
-          <p className="text-neutral-700">
+          <p className="text-secondary-foreground/80">
             Cada reportaje es un testimonio del mundo que nos rodea, un compromiso con la verdad y
             una ventana hacia realidades que muchas veces permanecen invisibles.
           </p>

@@ -61,6 +61,12 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        vintage: {
+          cream: "#FFF4EA",
+          peach: "#FAF0E6",
+          teal: "#7EACB5",
+          crimson: "#BF4646",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
