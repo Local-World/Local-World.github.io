@@ -41,9 +41,9 @@ export function Layout() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FFF4EA] overflow-x-hidden">
+    <div className="min-h-screen bg-[#fff7f1] overflow-x-hidden">
       {/* Header */}
-      <header className="absolute inset-x-0 top-0 z-50 bg-[#fff4ea] md:sticky md:border-b md:border-b-[#D9C3B3] md:backdrop-blur-none">
+      <header className="absolute inset-x-0 top-0 z-50 bg-[#fff7f1] md:sticky md:border-b md:border-b-[#D9C3B3] md:backdrop-blur-none">
         <div className="w-full max-w-7xl mx-auto flex items-center justify-between px-4 py-4 sm:px-6">
           <Link
             to="/"
@@ -145,7 +145,7 @@ export function Layout() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t-[4px] border-t-[#D9C3B3] mt-24 bg-[#FFF4EA]">
+       <footer className="border-t border-t-[#D9C3B3]/60 mt-24 bg-[#fff7f1] shadow-[inset_0_10px_18px_rgba(110,31,42,0.03)]">
         <div className="max-w-7xl mx-auto px-6 py-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>

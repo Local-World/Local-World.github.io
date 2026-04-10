@@ -95,7 +95,7 @@ export function Reportajes() {
       : reportajes.filter((r) => r.country === selectedCountry);
 
   return (
-    <div className="bg-[#FFF4EA] text-[#2E201D]">
+    <div className="bg-[#fff7f1] text-[#2E201D]">
       {/* Header */}
       <section className="bg-neutral-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-6">
@@ -107,7 +107,7 @@ export function Reportajes() {
       </section>
 
       {/* Filter */}
-      <section className="sticky top-[89px] z-40 bg-[#F3E6D8] border-b border-[#D9C3B3]">
+      <section className="sticky top-[89px] z-40 bg-[#f0e5da] border-b border-[#D9C3B3]">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex gap-4 overflow-x-auto">
             {countries.map((country) => (

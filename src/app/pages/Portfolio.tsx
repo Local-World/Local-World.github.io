@@ -284,7 +284,7 @@ export function Portfolio() {
   }, [selectedIndex]);
 
   return (
-    <div className="bg-[#FFF4EA] text-[#2E201D]">
+    <div className="bg-[#fff7f1] text-[#2E201D]">
       <section className="bg-neutral-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-6">
           <h1 className="text-5xl tracking-tight mb-4">PORTFOLIO FOTOGRÁFICO</h1>
