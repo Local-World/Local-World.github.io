@@ -79,7 +79,7 @@ export function Home() {
           </p>
           <Link
             to="/reportajes"
-            className="inline-block bg-[#F2F0EF] text-neutral-900 px-8 py-3 tracking-wide hover:bg-[#F2F0EF]/90 transition-all shadow-sm hover:shadow-md rounded-lg"
+            className="inline-block bg-[#F2F0EF] text-neutral-900 px-8 py-3 tracking-wide hover:bg-[#A34A52]/90 transition-all shadow-sm hover:shadow-md rounded-lg"
           >
             VER REPORTAJES
           </Link>
@@ -93,7 +93,7 @@ export function Home() {
               onClick={() => setCurrentHeroIndex(index)}
               aria-label={`Ir a imagen ${index + 1}`}
               className={`h-2.5 rounded-full transition-all shadow-md ${
-                index === currentHeroIndex ? "bg-vintage-teal w-6" : "bg-white/50 hover:bg-white/80"
+                index === currentHeroIndex ? "bg-[#6E1F2A] w-6" : "bg-[#6E1F2A]/25 hover:bg-[#6E1F2A]/40"
               }`}
             />
           ))}
@@ -105,13 +105,13 @@ export function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {featuredStories.map((story) => {
             const borderColor = {
-              "Reportajes": "border-t-vintage-crimson",
-            "Opinión": "border-t-vintage-crimson",
-              "Portfolio": "border-t-vintage-teal",
+              "Reportajes": "border-t-[#6E1F2A]",
+              "Opinión": "border-t-[#6E1F2A]",
+              "Portfolio": "border-t-[#6E1F2A]",
             }[story.category] || "border-t-neutral-200";
             return (
               <Link key={story.id} to={story.link} className="group">
-                <div className={`aspect-[4/3] overflow-hidden bg-muted mb-4 rounded-lg shadow-md group-hover:shadow-lg transition-shadow border border-vintage-peach/40 border-t-4 ${borderColor}`}>
+                <div className={`aspect-[4/3] overflow-hidden bg-[#6E1F2A]/15 mb-4 rounded-lg shadow-md group-hover:shadow-lg transition-shadow border border-[#6E1F2A]/40 border-t-4 ${borderColor}`}>
                   <ImageWithFallback
                     src={story.image}
                     alt={story.title}
@@ -131,10 +131,10 @@ export function Home() {
         </div>
       </section>
 
-      <section className="bg-secondary py-20 shadow-inner border-t-4 border-t-vintage-crimson">
+      <section className="bg-[#F3E6D8] py-20 shadow-[inset_0_2px_0_rgba(84,59,53,0.18)]">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl tracking-tight text-secondary-foreground mb-6">SOBRE MÍ</h2>
-          <p className="text-secondary-foreground/80 mb-6">
+          <h2 className="text-3xl tracking-tight text-neutral-900 mb-6">SOBRE MÍ</h2>
+          <p className="text-neutral-900/80 mb-6">
             Soy Pablo Martínez, me dedico a viajar y conocer cualquier cultura o país del mundo,
             desde lo mejor de cada una de estas hasta lo peor del ser humano. Este es un espacio
             para exponer lo que he visto con mis propios ojos, a través del periodismo documental y

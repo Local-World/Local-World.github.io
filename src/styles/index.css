@@ -4,6 +4,7 @@
 
 /* Vintage touches */
 body {
+  background-color: #FFF4EA;
   background-image: 
     radial-gradient(circle at 25% 25%, rgba(126, 172, 181, 0.03) 0%, transparent 50%),
     radial-gradient(circle at 75% 75%, rgba(191, 70, 70, 0.03) 0%, transparent 50%);

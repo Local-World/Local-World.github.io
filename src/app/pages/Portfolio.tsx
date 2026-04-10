@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
 export function Portfolio() {
-  const [selectedIndex, setSelectedIndex] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [direction, setDirection] = useState(0);
 
   const photos = [
@@ -11,270 +11,237 @@ export function Portfolio() {
       url: "/Portfolio/madrehijo_alsacia.jpg",
       title: "Madre e hijo en Alsacia",
       location: "Francia",
-      description:
-        "",
+      description: "",
     },
     {
       id: 2,
       url: "/Portfolio/monte_alsacia.jpg",
       title: "Paisaje de Alsacia",
       location: "Francia",
-      description:
-        "",
+      description: "",
     },
     {
       id: 3,
       url: "/Portfolio/ana_musical.jpg",
       title: "Orgulloso de ti, hermanita",
       location: "España",
-      description:
-        "",
+      description: "",
     },
     {
       id: 4,
       url: "/Portfolio/iglesia_alsacia.jpg",
       title: "Iglesia en Alsacia",
       location: "Francia",
-      description:
-        "",
+      description: "",
     },
     {
       id: 5,
       url: "/Portfolio/camello_agadir.jpg",
       title: "Trata de Camellos",
       location: "Marruecos",
-      description:
-        "En Marruecos es común el maltrato de camellos para uso turístico.",
+      description: "En Marruecos es común el maltrato de camellos para uso turístico.",
     },
     {
       id: 6,
       url: "/Portfolio/mauritania_hombre.jpg",
       title: "Un café en Mauritania",
       location: "Mauritania",
-      description:
-        "Comercios callejeros de café y té en pueblos de Mauritania.",
+      description: "Comercios callejeros de café y té en pueblos de Mauritania.",
     },
     {
       id: 7,
       url: "/Portfolio/mujer_mercado.jpg",
       title: "Mujer en mercado de Marrakech",
       location: "Marruecos",
-      description:
-        "",
+      description: "",
     },
     {
       id: 8,
       url: "/Portfolio/margalo.jpg",
       title: "Tortuga al sol",
       location: "España",
-      description:
-        "",
+      description: "",
     },
     {
       id: 9,
       url: "/Portfolio/bicicleta_bratislava.jpg",
       title: "Paseo en bicicleta en Bratislava",
       location: "Eslovaquia",
-      description:
-        "",
+      description: "",
     },
-{
+    {
       id: 10,
       url: "/Portfolio/pareja_marrakech.jpg",
       title: "Las vistas de Marrakech",
       location: "Marruecos",
-      description:
-        "",
+      description: "",
     },
     {
       id: 11,
       url: "/Portfolio/pareja_agadir.jpg",
       title: "Playa en Agadir",
       location: "Marruecos",
-      description:
-        "",
+      description: "",
     },
     {
       id: 12,
       url: "/Portfolio/marmenor.jpg",
       title: "Veleros en el Mar Menor",
       location: "España",
-      description:
-        "",
+      description: "",
     },
     {
       id: 13,
       url: "/Portfolio/byn_cartagena.jpg",
       title: "Viejos tiempos en Cartagena",
       location: "España",
-      description:
-        "",
+      description: "",
     },
     {
       id: 14,
       url: "/Portfolio/ceramica_agadir.jpg",
       title: "Alfarero de Agadir",
       location: "Marruecos",
-      description:
-        "Una antigua profesión Marroquí que se mantiene aún en algunas zonas del país",
+      description: "Una antigua profesión Marroquí que se mantiene aún en algunas zonas del país",
     },
     {
       id: 15,
       url: "/Portfolio/granada.jpg",
       title: "Arquitectura granadina",
       location: "España",
-      description:
-        "",
+      description: "",
     },
     {
       id: 16,
       url: "/Portfolio/max.jpg",
       title: "Gracias",
       location: "España",
-      description:
-        "'No diré que no lloréis, pues no todas las lágrimas son amargas'",
+      description: "'No diré que no lloréis, pues no todas las lágrimas son amargas'",
     },
-     {
+    {
       id: 17,
       url: "/Portfolio/arbol_nieve.jpg",
       title: "Árbol nevado en Alsacia",
       location: "Francia",
-      description:
-        "",
-    },   
+      description: "",
+    },
     {
       id: 18,
       url: "/Portfolio/pueblo_agadir.jpg",
       title: "Personas paseando por un pueblo de Agadir",
       location: "Marruecos",
-      description:
-        "",
+      description: "",
     },
     {
       id: 19,
       url: "/Portfolio/noria_alsacia.jpg",
       title: "Noria en Alsacia",
       location: "Francia",
-      description:
-        "",
+      description: "",
     },
     {
       id: 20,
       url: "/Portfolio/muro_budapest.jpg",
       title: "Las víctimas de la ocupación alemana",
       location: "Hungría",
-      description:
-        "Monumento polémico debido a que pretende blanquear el papel de Hungría en el Holocausto",
+      description: "Monumento polémico debido a que pretende blanquear el papel de Hungría en el Holocausto",
     },
     {
       id: 21,
       url: "/Portfolio/ana_musical2.jpg",
       title: "Obra musical Gran Showman",
       location: "España",
-      description:
-        "",
-    },  
+      description: "",
+    },
     {
       id: 22,
       url: "/Portfolio/pareja_agadir_byn.jpg",
       title: "Día en la playa de Marruecos",
       location: "Marruecos",
-      description:
-        "",
+      description: "",
     },
     {
       id: 23,
       url: "/Portfolio/rulitas_desierto.jpg",
       title: "La inmensidad del desierto",
       location: "Túnez",
-      description:
-        "",
+      description: "",
     },
     {
       id: 24,
       url: "/Portfolio/playa_perro.jpg",
       title: "Un día en la playa",
       location: "España",
-      description:
-        "",
+      description: "",
     },
     {
       id: 25,
       url: "/Portfolio/mauritania_mujeres.jpg",
       title: "Las mujeres en Mauritania",
       location: "Mauritania",
-      description:
-        "",
+      description: "",
     },
     {
       id: 26,
       url: "/Portfolio/trabajador_agadir.jpg",
       title: "Trabajos de Agadir",
       location: "Marruecos",
-      description:
-        "",
+      description: "",
     },
     {
       id: 27,
       url: "/Portfolio/caña_agadir.jpg",
       title: "La soledad en Marruecos",
       location: "Marruecos",
-      description:
-        "",
+      description: "",
     },
     {
       id: 28,
       url: "/Portfolio/nieve_alsacia.jpg",
       title: "Paisaje nevado",
       location: "Alemania",
-      description:
-        "",
+      description: "",
     },
     {
       id: 29,
       url: "/Portfolio/ruina_kasserine.jpg",
       title: "Ruinas romanas de Kasserine",
       location: "Túnez",
-      description:
-        "Kasserine fue una ciudad en la época romana, en donde aun cuenta con ruinas de esta época",
+      description: "Kasserine fue una ciudad en la época romana, en donde aun cuenta con ruinas de esta época",
     },
     {
       id: 30,
       url: "/Portfolio/natalia_noria.jpg",
       title: "Grandes recuerdos",
       location: "España",
-      description:
-        "",
+      description: "",
     },
     {
       id: 31,
       url: "/Portfolio/rulis.jpg",
       title: "Rulis",
       location: "Marruecos",
-      description:
-        "",
+      description: "",
     },
     {
       id: 32,
       url: "/Portfolio/primaken.jpg",
       title: "Primaken",
       location: "Marruecos",
-      description:
-        "",
+      description: "",
     },
     {
       id: 33,
       url: "/Portfolio/poblado_playa.jpg",
       title: "Poblado de pescadores Agadir",
       location: "Marruecos",
-      description:
-        "",
+      description: "",
     },
   ];
 
   const selectedPhoto = selectedIndex !== null ? photos[selectedIndex] : null;
 
-  const openPhoto = (index) => {
+  const openPhoto = (index: number) => {
     setDirection(0);
     setSelectedIndex(index);
   };
@@ -287,17 +254,17 @@ export function Portfolio() {
   const goToPrevious = () => {
     if (selectedIndex === null) return;
     setDirection(-1);
-    setSelectedIndex((prev) => (prev === 0 ? photos.length - 1 : prev - 1));
+    setSelectedIndex((prev) => (prev === 0 ? photos.length - 1 : (prev as number) - 1));
   };
 
   const goToNext = () => {
     if (selectedIndex === null) return;
     setDirection(1);
-    setSelectedIndex((prev) => (prev === photos.length - 1 ? 0 : prev + 1));
+    setSelectedIndex((prev) => (prev === photos.length - 1 ? 0 : (prev as number) + 1));
   };
 
   useEffect(() => {
-    const handleKeyDown = (event) => {
+    const handleKeyDown = (event: KeyboardEvent) => {
       if (selectedIndex === null) return;
 
       if (event.key === "Escape") closePhoto();
@@ -317,7 +284,7 @@ export function Portfolio() {
   }, [selectedIndex]);
 
   return (
-    <div>
+    <div className="bg-[#FFF4EA] text-[#2E201D]">
       <section className="bg-neutral-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-6">
           <h1 className="text-5xl tracking-tight mb-4">PORTFOLIO FOTOGRÁFICO</h1>
@@ -336,7 +303,7 @@ export function Portfolio() {
               onClick={() => openPhoto(index)}
               className="group cursor-pointer text-left"
             >
-              <div className="aspect-[4/5] overflow-hidden bg-neutral-100 mb-3">
+              <div className="aspect-[4/5] overflow-hidden mb-3 rounded-md shadow-[0_4px_12px_rgba(110,31,42,0.07)]">
                 <ImageWithFallback
                   src={photo.url}
                   alt={photo.title}
@@ -350,7 +317,7 @@ export function Portfolio() {
         </div>
       </section>
 
-      <section className="bg-neutral-50 py-20">
+      <section className="bg-[#F3E6D8] py-20 border-t border-t-[#D9C3B3]">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl tracking-tight text-neutral-900 mb-6">SOBRE MI FOTOGRAFÍA</h2>
           <p className="text-neutral-700 mb-6">
@@ -410,7 +377,7 @@ export function Portfolio() {
                   : "animate-[fadeIn_250ms_ease]"
               }`}
             >
-              <div className="inline-block overflow-hidden rounded-t-2xl shadow-2xl bg-black max-w-[95vw]">
+              <div className="inline-block overflow-hidden rounded-t-md shadow-2xl bg-black max-w-[95vw]">
                 <ImageWithFallback
                   src={selectedPhoto.url}
                   alt={selectedPhoto.title}
@@ -418,7 +385,7 @@ export function Portfolio() {
                 />
               </div>
 
-              <div className="w-full bg-white rounded-b-2xl px-6 py-5 md:px-8 md:py-6 shadow-2xl">
+              <div className="w-full bg-white rounded-b-md px-6 py-5 md:px-8 md:py-6 shadow-2xl">
                 <p className="text-sm text-neutral-400 mb-2">
                   {selectedIndex + 1} / {photos.length}
                 </p>

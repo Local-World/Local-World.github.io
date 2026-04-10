@@ -63,7 +63,7 @@ export default {
         },
         vintage: {
           cream: "#FFF4EA",
-          peach: "#FAF0E6",
+          peach: "#6E1F2A",
           teal: "#7EACB5",
           crimson: "#BF4646",
         },
