@@ -131,17 +131,17 @@ export function Home() {
         </div>
       </section>
 
-      <section className="bg-[#F3E6D8] py-20 shadow-[inset_0_2px_0_rgba(84,59,53,0.18)]">
+      <section className="border-t border-t-[#D9C3B3]/60 mt-24 py-20 bg-[#fff7f1] shadow-[inset_0_10px_18px_rgba(110,31,42,0.03)]">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl tracking-tight text-neutral-900 mb-6">SOBRE MÍ</h2>
-          <p className="text-neutral-900/80 mb-6">
+          <p className="max-w-4xl mx-auto text-neutral-900/80 mb-6">
             Soy Pablo Martínez, me dedico a viajar y conocer cualquier cultura o país del mundo,
             desde lo mejor de cada una de estas hasta lo peor del ser humano. Este es un espacio
             para exponer lo que he visto con mis propios ojos, a través del periodismo documental y
             de investigación. Aquí encontrarás reportajes en video, análisis de actualidad, opinión
             y un portfolio fotográfico capturando todo tipo de historias que necesitan ser contadas.
           </p>
-          <p className="text-secondary-foreground/80">
+          <p className="max-w-3xl mx-auto text-secondary-foreground/80">
             Cada reportaje es un testimonio del mundo que nos rodea, un compromiso con la verdad y
             una ventana hacia realidades que muchas veces permanecen invisibles.
           </p>
